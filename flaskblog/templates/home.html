@@ -1,0 +1,170 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>
+    
+.column {
+  float: left;
+  width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+            
+.row{
+  display: grid;
+  grid-column-gap: 100px;
+  grid-template-columns: repeat(3, 3fr);
+}
+
+.flip-box {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+/* Style the front side */
+.flip-box-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-box-back {
+  background-color: rgba(214, 205, 205, 0.301);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.myhead{
+    font-family:'Parisienne';
+    font-weight: bold;
+    font-size: 30px;
+    text-decoration: underline;
+    
+}
+.centered {
+  font-size: 77px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family:'Parisienne';
+  color:honeydew;
+  text-align:center;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+}
+
+</style>
+
+<h1>  </h1>
+<p></p>
+<p></p>
+
+
+<div class="container">
+    <img src="../../khana/cookie.jpg" alt="cookie" height="400px" width="1100px">
+    
+    <div class="centered"><b>Explore foods and recipes with us! </b></div>
+  </div>
+
+<div class="row">
+        <div class="column">
+                <h2 class="myhead">Recipe System</h2>
+                <div class="flip-box">
+                        <div class="flip-box-inner">
+                          <div class="flip-box-front">
+                              <figure>
+                                 <img src="../../khana/recipe.jpg" alt="Recipe system" height="250px" width="300px"> 
+                                 <figcaption>Convert your ingredients into tasty recipes!</figcaption>
+                                </figure>
+                                </div>
+                          <a href="recipe.html">
+                          <div class="flip-box-back">
+                                <img src="../../khana/cooksketch.jpg"  height="250px" width="300px">  
+                          </div>
+                        </a>
+                        </div>
+                      </div>
+                
+                
+        </div>
+        <div class="column">
+                <h2 class="myhead">Restaurant System</h2>
+                <div class="flip-box">
+                        <div class="flip-box-inner">
+                          <div class="flip-box-front">
+                              <figure>
+                                 <img src="../../khana/restaurant.jpg" alt="Restaurant system" height="250px" width="300px"> 
+                                 <figcaption>Find amazing restaurants according to cuisines!</figcaption>
+                                </figure>
+                          </div>
+                          <a href="restaurant.html">
+                          <div class="flip-box-back">
+                                <img src="../../khana/restaurantsketch.jpg"  height="250px" width="300px"> 
+                          </div>
+                        </a>
+                        </div>
+                        
+                </div>
+                
+        </div>
+        <div class="column">
+        
+                <h2 class="myhead">Dashboard System</h2>
+                <div class="flip-box">
+                        <div class="flip-box-inner">
+                          <div class="flip-box-front">
+                              <figure>
+                                 <img src="../../khana/mydash.jpeg" alt="Dashboard" height="250px" width="300px"> 
+                                <figcaption>Discuss about recipes and restaurants with other users!</figcaption>
+                                </figure>
+                          </div>
+                          <a href="dashboard.html">
+                          <div class="flip-box-back">
+                                <img src="../../khana/dashsketch.jpg"  height="250px" width="300px"> 
+                          </div>
+                        </a>
+                        </div>
+                      </div>
+        
+        </div>
+      </div>
+
+
+
+
+{% endblock content %}

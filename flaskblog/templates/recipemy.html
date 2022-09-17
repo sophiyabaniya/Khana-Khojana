@@ -1,0 +1,218 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<title>W3.JS</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+   table#example {
+    border-collapse: collapse;   
+}
+#example tr {
+    background-color: #eee;
+    border-top: 1px solid #fff;
+}
+#example tr:hover {
+    background-color: #ccc;
+}
+#example th {
+    background-color: #fff;
+}
+#example th, #example td {
+    padding: 3px 5px;
+}
+#example td:hover {
+    cursor: pointer;
+}
+
+.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  
+  transition: 0.5s;
+  display: block;
+   overflow: auto;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+  color: #ccc;
+  font-size: larger;
+  overflow: auto;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
+
+.you{
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  text-decoration: underline;
+}
+
+.my{
+        
+        font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+        font-size: 30px;
+        padding: 50px 20px;
+        text-align:left;
+        text-transform: uppercase;
+        text-rendering: optimizeLegibility;
+        color: maroon;
+        
+        
+    
+    
+    text-shadow: 
+      1px -1px 0 #804c45, 
+      -1px 2px 1px #854c4c, 
+      -2px 4px 1px #dfa97e, 
+      -3px 6px 1px #dfca84
+      
+    }
+
+.maybe{
+   font-family: "Comic Sans MS", cursive, sans-serif;
+   color: #f3dc92;
+   text-decoration: underline;
+   text-decoration-color:  #f3dc92;
+   font-size: 40px;
+}
+
+.maybe1{
+   font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+   font-size: 30px;    
+}
+
+#myImg{
+   object-fit: cover;
+}
+
+</style>
+
+<body class="w3-container"  >
+<br>
+<br>
+
+      <h4 class="my">Available recipes</h4>
+
+      <div id="myNav" class="overlay">
+         
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                  <img id="myImg" src="" height="300px" width="500px">
+               <h5 class="maybe">Recipe name: </h5>  <p id="testing" class="maybe1"></p>
+               <h5 class="maybe">Author name: </h5>  <p id="testing1" class="maybe1"></p>
+               <h5 class="maybe">Reviews:  </h5>  <p id="testing2" class="maybe1"></p>
+               <h5 class="maybe">Preparation time: </h5>    <p id="testing3" class="maybe1"></p>
+               <h5 class="maybe">Cook time:  </h5>   <p id="testing4" class="maybe1"></p>
+               <h5 class="maybe">Total time:  </h5>   <p id="testing5" class="maybe1"></p> 
+               <h5 class="maybe">Ingredients:  </h5>   <p id="testing6" class="maybe1"></p>
+               <h5 class="maybe">Directions:  </h5>   <p id="testing7" class="maybe1"></p>
+            </div>
+         
+      </div>
+
+<div> 
+<table class="w3-table-all" id="example">
+      <tr>
+              <th>Recipe name</th>
+              <th>Author</th>
+              <th>Review</th>
+              <th>Preparation time</th>
+              <th>Ingredients</th>
+              
+      </tr>
+
+      {% for lastrecipe, author, review,preptime, cooktime, totaltime, ingred, directions, pic in lst %}
+      
+
+      <tr onclick="openNav(['{{ lastrecipe }}']  ,  ['{{ author }}'], ['{{ review }}'], ['{{ preptime }}'], ['{{ cooktime }}'], ['{{ totaltime }}'], ['{{ ingred }}'], ['{{ directions }}'], ['{{ pic}}'] )">
+      
+        
+         <td   >  {{lastrecipe}}   </td> 
+         <td  >  {{author}}   </td>  
+         <td  >  {{review}}   </td>
+         <td  >  {{preptime}}   </td>
+         <td  >  {{ingred}}   </td>
+              
+      
+      </tr>
+      {% endfor %}
+     
+</table>
+</div>
+
+
+<script>
+
+function openNav(a,b,c,d,e,f,g,h,i) {
+   var first=a;
+   var second=b;
+   var third=c;
+   var fourth=d;
+   var fifth=e;
+   var sixth=f;
+   var seventh=g;
+   var eighth=h;
+   var photo = i;
+  document.getElementById("myNav").style.height = "100%";
+  document.getElementById("testing").innerHTML = first;
+  document.getElementById("testing1").innerHTML = second;
+  document.getElementById("testing2").innerHTML = third;
+  document.getElementById("testing3").innerHTML = fourth;
+  document.getElementById("testing4").innerHTML = fifth;
+  document.getElementById("testing5").innerHTML = sixth;
+  document.getElementById("testing6").innerHTML = seventh;
+  document.getElementById("testing7").innerHTML = eighth;
+  document.getElementById("myImg").src = photo;
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.height = "0%";
+}
+   
+   </script>
+
+{% endblock content %}

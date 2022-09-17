@@ -1,0 +1,245 @@
+{% extends "layout.html" %}
+{% block content %}
+<style>
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.searchbtn {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  /*color: white;*/
+  
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  font-size:large;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.btn {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* On mouse-over */
+.btn:hover {background: #eee;}
+
+.success {color: green;}
+.info {color: dodgerblue;}
+.warning {color: orange;}
+
+
+.my{
+        
+        font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+        font-size: 60px;
+        padding: 50px 20px;
+        text-align: center;
+        text-transform: uppercase;
+        text-rendering: optimizeLegibility;
+        color: maroon;
+    
+    letter-spacing: .15em;
+    text-shadow: 
+      1px -1px 0 #804c45, 
+      -1px 2px 1px #854c4c, 
+      -2px 4px 1px #dfa97e, 
+      -3px 6px 1px #dfca84, 
+      -4px 8px 1px #e0c89c, 
+      -5px 10px 1px #cfb97d, 
+      -6px 12px 1px #e7d4af, 
+      -7px 14px 1px #e9d5b0, 
+      -8px 16px 1px #e2c6a9, 
+      -9px 18px 1px #ddbfa2, 
+      -10px 20px 1px #caa580, 
+      -11px 22px 1px #e9cfb4, 
+      -12px 24px 1px #ebc1a5, 
+      -13px 26px 1px bisque, 
+      -14px 28px 1px bisque, 
+      -15px 30px 1px bisque, 
+      -16px 32px 1px burlywood, 
+      -17px 34px 1px #b7b6b5, 
+      -18px 36px 1px #bcbbba, 
+      -19px 38px 1px #c1bfbf, 
+      -20px 40px 1px #c6c4c4, 
+      -21px 42px 1px #cbc9c8, 
+      -22px 44px 1px #cfcdcd, 
+      -23px 46px 1px #d4d2d1, 
+      -24px 48px 1px #d8d6d5, 
+      -25px 50px 1px #dbdad9, 
+      -26px 52px 1px #dfdddc, 
+      -27px 54px 1px #e2e0df, 
+      -28px 56px 1px #e4e3e2;
+    }
+
+.you{
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  text-decoration: underline;
+}
+
+</style>
+<h2 class="my">Restaurants </h2>
+<h4 class="you">Select your cuisine</h4>
+<div ><a href="{{ url_for('map3') }}"> <button class="searchbtn" style="float: right">  nearby  </button></a></div>
+
+
+
+
+
+
+<!-- Tab links -->
+<div class="tab">
+    <button class="tablinks" onclick="openCity(event, 'nepali')">Nepali</button>
+    <button class="tablinks" onclick="openCity(event, 'korean')">Korean</button>
+    <button class="tablinks" onclick="openCity(event, 'thai')">Thai</button>
+    <button class="tablinks" onclick="openCity(event, 'italian')">Italian</button>
+    <button class="tablinks" onclick="openCity(event, 'indian')">Indian</button>
+  </div>
+  
+  <!-- Tab content -->
+  <div id="nepali" class="tabcontent">
+    <h3>Available nepali restaurants</h3>
+    <p><a href="jimbu.html"> <button class="btn success">Jimbu restaurant</button></a></p>
+    <p><a href="tukche.html"> <button class="btn info">Tukche restaurant</button></a></p>
+    <p><a href="lete.html"> <button class="btn warning">Lete restaurant</button></a></p>
+  </div>
+  
+  <div id="korean" class="tabcontent">
+      <h3>Available korean restaurants</h3>
+      <p><a href="hangkok.html"> <button class="btn success">Hangkok sarang restaurant</button></a></p>
+      <p><a href="picnic.html"> <button class="btn info">Picnic restaurant </button></a></p>
+      <p><a href="kimchee.html"> <button class="btn warning">Kimchee restaurant and bar</button></a></p>
+  </div>
+  
+  <div id="thai" class="tabcontent">
+      <h3>Available thai restaurants</h3>
+      <p><a href="baanthai.html"> <button class="btn success">Baan thai restaurant</button></a></p>
+      <p><a href="yingyang.html"> <button class="btn info">Ying yang thai restaurant </button></a></p>
+      <p><a href="mangochilli.html"> <button class="btn warning">Mango chilli restaurant</button></a></p>
+  </div>
+
+  <div id="italian" class="tabcontent">
+      <h3>Available italian restaurants</h3>
+    <p><a href="ladolcevita.html"> <button class="btn success">La dolce vita restaurant</button></a></p>
+    <p><a href="littleitaly.html"> <button class="btn info">Little italy restaurant</button></a></p>
+    <p><a href="blackwater.html"> <button class="btn warning">Black water restaurant</button></a></p>
+    </div>
+
+    <div id="indian" class="tabcontent">
+        <h3>Available indian restaurants</h3>
+        <p><a href="hyderabad.html"> <button class="btn success">Hyderabad house restaurant</button></a></p>
+        <p><a href="aangan.html"> <button class="btn info">Aangan sweets</button></a></p>
+        <p><a href="kolkata.html"> <button class="btn warning">Kolkata sweets</button></a></p>
+      </div>
+
+
+
+
+<script>
+
+function openCity(evt, cityName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+</script>
+
+{% endblock content %}

@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block content %}
+<style>
+  .contents{
+        background: rgb(0, 0, 0); /* fallback color */ 
+        background: rgba(0, 0, 0, 0.5); padding: 10px;
+        font-size:  20px;
+        font-weight: 450;
+        color: black;
+    }
+
+    .my{
+        
+        font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+        font-size: 60px;
+        padding: 50px 20px;
+        text-align:left;
+        text-transform: uppercase;
+        text-rendering: optimizeLegibility;
+        color: maroon;
+        
+    
+    letter-spacing: .15em;
+    text-shadow: 
+      1px -1px 0 #804c45, 
+      -1px 2px 1px #854c4c, 
+      -2px 4px 1px #dfa97e, 
+      -3px 6px 1px #dfca84
+      
+    }
+
+    .you{
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  text-decoration: underline;
+}
+
+</style>
+
+<h2 class="my">Dashboard </h2>
+<h4 class="you">Welcome to your dashboard!</h4>
+<br> 
+<div class="contents">
+    {% for post in posts.items %}
+        <article class="media content-section">
+          <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{{ url_for('user_posts', username=post.author.username) }}">{{ post.author.username }}</a>
+              <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+            </div>
+            <h2><a class="article-title" href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content }}</p>
+          </div>
+        </article>
+        <legend class="border-bottom mb-4"> </legend>
+    {% endfor %}
+  </div>
+{% endblock content %}

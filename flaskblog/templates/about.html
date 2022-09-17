@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<style>
+    .my{
+        
+        font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+        font-size: 50px;
+        padding: 50px 20px;
+        text-align:left;
+        text-transform: uppercase;
+        text-rendering: optimizeLegibility;
+        color: maroon;
+        
+        
+    
+    
+    text-shadow: 
+      1px -1px 0 #804c45, 
+      -1px 2px 1px #854c4c, 
+      -2px 4px 1px #dfa97e, 
+      -3px 6px 1px #dfca84
+      
+    }
+
+    #contents{
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-size: 20px;
+  color: maroon;
+}
+
+</style>
+
+<script>
+
+       var first="https://images.media-allrecipes.com/userphotos/560x315/4465807.jpg";
+       
+      document.getElementById("mynav").innerHTML = first;
+      
+
+       </script>
+
+
+<h2 class="my">About us </h2>
+<br>
+<p id="contents"> <b>"Khana Khojana"</b> is actually a nepali name where the word 'Khana' means food and
+   'Khojana' means to search which makes our project name very meaningful to 'search food' .
+    It is meant for the users who are searching for different recipes to make with 
+    the ingredients they have in their fridge. And also for the users to search the 
+    restaurants to have foods of a particular cuisine. Not only this, but we also allow
+     our users to discuss and post or present their opinions regarding restaurants 
+     or recipes in our dashboard! 
+
+ </p>
+    
+{% endblock content %}

@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{%for i in to_send%}
+
+<p> {{ (tuple(to_send.items())[i]) }}
+
+</p>
+
+{%endfor%}
+
+{% endblock content %}

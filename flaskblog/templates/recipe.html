@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block content %}
+<style>
+
+    .cols{
+        color: gray;
+        font:16px;
+    }
+
+    .my{
+        
+        font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+        font-size: 60px;
+        padding: 50px 20px;
+        text-align: center;
+        text-transform: uppercase;
+        text-rendering: optimizeLegibility;
+        color: maroon;
+    
+    letter-spacing: .15em;
+    text-shadow: 
+      1px -1px 0 #804c45, 
+      -1px 2px 1px #854c4c, 
+      -2px 4px 1px #dfa97e, 
+      -3px 6px 1px #dfca84, 
+      -4px 8px 1px #e0c89c, 
+      -5px 10px 1px #cfb97d, 
+      -6px 12px 1px #e7d4af, 
+      -7px 14px 1px #e9d5b0, 
+      -8px 16px 1px #e2c6a9, 
+      -9px 18px 1px #ddbfa2, 
+      -10px 20px 1px #e6cbb0, 
+      -11px 22px 1px #e9cfb4, 
+      -12px 24px 1px #ebc1a5, 
+      -13px 26px 1px bisque, 
+      -14px 28px 1px bisque, 
+      -15px 30px 1px bisque, 
+      -16px 32px 1px burlywood, 
+      -17px 34px 1px #b7b6b5, 
+      -18px 36px 1px #bcbbba, 
+      -19px 38px 1px #c1bfbf, 
+      -20px 40px 1px #c6c4c4, 
+      -21px 42px 1px #cbc9c8, 
+      -22px 44px 1px #cfcdcd, 
+      -23px 46px 1px #d4d2d1, 
+      -24px 48px 1px #d8d6d5, 
+      -25px 50px 1px #dbdad9, 
+      -26px 52px 1px #dfdddc, 
+      -27px 54px 1px #e2e0df, 
+      -28px 56px 1px #e4e3e2;
+    }
+
+    .you{
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  text-decoration: underline;
+}
+
+#txtbox
+    {
+     
+     height:42px;
+     width:600px;
+    }
+
+</style>
+
+
+<h2 class="my">Recipe System</h2>
+<h4 class="you">Enter the name of ingredients you have:</h4>
+<P class="cols">  * separate the ingredients with comma ',' * </P>
+<P>  </P>
+<form action="/recipemy" method="POST">
+    <input type="text" name="test" id="txtbox">
+    <input type="submit" value="Go">
+</form>
+
+{% endblock content %}
+
+

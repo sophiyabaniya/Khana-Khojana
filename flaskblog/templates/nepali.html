@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block content %}
+<style>
+        .myhead{
+                
+                font-weight: 900;
+                font: 60px cursive ;
+                color: rgba(230, 164, 66, 0.904);
+                
+            }
+            
+        
+            .one, .two , .three{
+                font: 200px ;
+                color: black;
+            }
+            
+                
+    </style>
+    <div class="contents">
+    <div style="text-align:center">
+        <h1 class="myhead"> Restaurants available for Nepali cuisine:</h1>
+        <legend class="border-bottom mb-4"> </legend>
+        <a href="{{ url_for('jimbu') }}"> <img src="../../khana/jimbu.png" alt="jimbu picture" height="115px" width="300px"> </a>
+        <p class="one" > <b> Jimbu restaurant </b>   </p>
+        <a href="{{ url_for('tukche') }}"><img src="../../khana/tukche.png" alt="tukche picture" height="115px" width="300px"> </a>
+        <p class="one">  <b>   Tukche restaurant </b>  </p>
+        <a href="{{ url_for('lete') }}"><img src="../../khana/lette.png" alt="lete picture" height="115px" width="300px"> </a>
+        <p class="one"> <b>   Lete restaurant </b>  </p>
+    </div>
+    </div>
+
+{% endblock content %}

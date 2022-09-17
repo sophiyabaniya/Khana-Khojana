@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+{% block content %}
+<style>
+#image{
+    object-fit: cover;
+}
+#topic{
+    font-family:'Parisienne';
+    font-size: 65px;
+    color: saddlebrown;
+    text-decoration: underline;
+    text-decoration-color:black;
+    
+}
+
+.columns {
+  float: left;
+  width: 75%;
+}
+.columns2 {
+  float: left;
+  width: 25%;
+}
+/* Clear floats after the columns */
+.rows:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+            
+.rows{
+  display: grid;
+  grid-column-gap: 100px;
+  grid-template-columns: repeat(2, 3fr);
+}
+
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .columns {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.cards {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: left;
+  background-color: #f1f1f1;
+  width: 700px;
+  font-size: 20px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.cards2 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+  width: 400px;
+  align-content: center;
+}
+#formenu{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 30px;
+    
+    text-decoration: underline;
+}
+</style>
+<div>
+        
+        <img id="image" src="../../khana/lette.png" alt="picture" height="450px" width="1100px">
+        <h1 id="topic"> <b>Lete restauarant </b></h1>
+
+
+        <div class="rows">
+                <div class="columns">
+                  <div class="cards">
+                        <a></a>
+                        <h2><b><u>Details</u></b></h2>
+                        <p>Address        : Tangal</p>
+            <p>Parking        : Yes</p>
+            <p>Wifi           : No</p>
+            <p>POS machine    : No</p>
+            <p>Service charge : Yes</p>
+            <p>VAT            : Yes</p>
+            <p>Open time      : 10:00 am</p>
+            <p>Close time     : 9:00 pm</p>
+            <p>Rating         : 3 out of 5</p>
+                  </div>
+                </div>
+              
+                <div class="columns2">
+                  <div class="cards2">
+                        <p id="formenu"> <b> Menu </b></p>
+                        <p><img src="../../khana/lettemenu1.png" alt="picture" height="400px" width="300px"></p>
+                        <p><img src="../../khana/lettemenu2.png" alt="picture" height="400px" width="300px"></p>
+                        <p><img src="../../khana/lettemenu3.png" alt="picture" height="400px" width="300px"></p>
+                 </div>
+                </div>
+            </div>   
+</div>
+{% endblock content %}
+
